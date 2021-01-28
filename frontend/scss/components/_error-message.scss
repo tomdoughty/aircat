@@ -1,0 +1,8 @@
+.error-message {
+  @include font(19, $weight: bold);
+
+  clear: both;
+  color: $error-color;
+  display: block;
+  margin-bottom: spacing(3);
+}

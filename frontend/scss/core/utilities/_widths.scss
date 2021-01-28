@@ -1,0 +1,43 @@
+.u-width-full {
+  width: 100% !important;
+}
+
+.u-width-three-quarters {
+  width: 100% !important;
+
+  @include mq($from: tablet) {
+    width: 75% !important;
+  }
+}
+
+.u-width-two-thirds {
+  width: 100% !important;
+
+  @include mq($from: tablet) {
+    width: 66.66% !important;
+  }
+}
+
+.u-width-one-half {
+  width: 100% !important;
+
+  @include mq($from: tablet) {
+    width: 50% !important;
+  }
+}
+
+.u-width-one-third {
+  width: 100% !important;
+
+  @include mq($from: tablet) {
+    width: 33.33% !important;
+  }
+}
+
+.u-width-one-quarter {
+  width: 100% !important;
+
+  @include mq($from: tablet) {
+    width: 25% !important;
+  }
+}

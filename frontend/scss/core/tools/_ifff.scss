@@ -1,0 +1,3 @@
+@function iff($condition, $if-true) {
+  @return if($condition, $if-true, null);
+}

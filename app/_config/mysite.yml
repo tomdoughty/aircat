@@ -1,0 +1,20 @@
+---
+Name: myproject
+---
+SilverStripe\Core\Manifest\ModuleManifest:
+  project: app
+
+SilverStripe\CMS\Model\SiteTree:
+  extensions:
+    - SiteTree
+
+SilverShop\Admin\ProductBulkLoader:
+  extensions:
+    - SetParentExtension
+
+SilverShop\Page\Product:
+  extensions:
+    - ProductExtension
+
+SilverStripe\ORM\FieldType\DBCurrency:
+  currency_symbol: '£'

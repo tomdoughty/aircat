@@ -1,0 +1,47 @@
+version: "3.8"
+
+volumes:
+  db-data:
+
+services:
+  
+  database:
+    image: mysql:5.7
+    env_file:
+      - docker-compose.env
+    volumes:
+      - db-data:/var/lib/mysql
+
+  silverstripe:
+    image: brettt89/silverstripe-web:7.4-apache
+    env_file:
+      - docker-compose.env
+    ports:
+      - 8080:80
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - database
+
+  composer:
+    restart: 'no'
+    image: composer/composer
+    command: update --ignore-platform-reqs
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - silverstripe
+
+  frontend:
+    build:
+      context: .
+      target: frontend
+    command: npm run dev
+    volumes:
+      - ./frontend:/node/frontend
+      - ./public:/node/public
+      - /node/frontend/node_modules
+  
+    depends_on:
+      - composer

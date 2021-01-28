@@ -1,0 +1,43 @@
+$font: Rubik;
+$font-fallback: Arial, Sans-serif;
+$font-family-print: sans-serif !default;
+$font-bold: 600;
+$font-normal: 300;
+$font-light: $font-normal;
+
+$base-font-size: 16px !default;
+$base-line-height: 24px !default;
+
+$icon-size: 34px !default;
+
+$page-width: 960px;
+$gutter: 32px;
+$gutter-half: $gutter / 2;
+
+$border-width-inset-text: 8px !default;
+$care-card-triangle-border: 16px !default;
+$hero-content-triangle-border: 16px !default;
+$hero-border: 1px !default;
+$border-list-panel: 2px !default;
+$border-list-panel-item: 1px !default;
+$border-table-header-width: 2px !default;
+$border-table-cell-width: 1px !default;
+
+$border-radius: 4px !default;
+
+$box-shadow-spread: 4px !default;
+$box-shadow-blur: 4px !default;
+$box-shadow-link: 4px !default;
+$box-details: 8px !default;
+$box-expander: 4px !default;
+$box-shadow-pagination: 16px !default;
+$box-shadow-link: 4px !default;
+
+$header-spacing: 20px;
+
+$border-width-form-element: 2px !default;
+$border-width-form-element-error: 4px !default;
+$focus-width: 4px !default;
+$border-width: 4px !default;
+$border-width-mobile: 4px !default;
+$border-width-form-group-error: $border-width !default;

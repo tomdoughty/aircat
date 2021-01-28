@@ -1,0 +1,225 @@
+$button-shadow-size: 4px;
+
+.button {
+  @include font(16);
+  @include responsive-margin(5, 'bottom', $adjustment: $button-shadow-size);
+
+  -webkit-appearance: none;
+  background-color: $button-color;
+  border: $border-width-form-element solid transparent;
+  box-sizing: border-box;
+  color: $button-text-color;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  margin-top: 0;
+  padding: 8px 12px;
+  position: relative;
+  text-align: center;
+  vertical-align: top;
+  width: auto;
+
+  @include mq($until: tablet) {
+    padding: 8px 12px;
+  }
+
+  &:link,
+  &:visited,
+  &:active,
+  &:hover {
+    color: $button-text-color;
+    text-decoration: none;
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  &:hover {
+    background-color: $button-hover-color;
+  }
+
+  &:focus {
+    background: $focus-color;
+    box-shadow: 0 $button-shadow-size 0 $focus-text-color;
+    color: $focus-text-color;
+    outline: $focus-width solid transparent;
+
+    &:visited {
+      color: $focus-text-color;
+
+      &:active {
+        color: $color_white;
+      }
+
+    }
+  }
+
+  &:active {
+    background: $button-active-color;
+    box-shadow: none;
+    color: $button-text-color;
+    top: $button-shadow-size;
+  }
+
+  &::before {
+    background: transparent;
+    bottom: -($border-width-form-element + $button-shadow-size);
+    content: '';
+    display: block;
+    left: -$border-width-form-element;
+    position: absolute;
+    right: -$border-width-form-element;
+    top: -$border-width-form-element;
+  }
+
+  &:active::before {
+    top: -($border-width-form-element + $button-shadow-size);
+  }
+
+}
+
+.button--secondary {
+  background-color: $secondary-button-color;
+  box-shadow: 0 $button-shadow-size 0 $secondary-button-shadow-color;
+
+  &:hover {
+    background-color: darken($secondary-button-color, 10%);
+  }
+
+  &:focus {
+    background: $focus-color;
+    box-shadow: 0 $button-shadow-size 0 $focus-text-color;
+    color: $focus-text-color;
+    outline: $focus-width solid transparent;
+  }
+
+  &:active {
+    background: $secondary-button-active-color;
+    box-shadow: none;
+    color: $button-text-color;
+    top: $button-shadow-size;
+  }
+
+  &.button--disabled {
+    background-color: $secondary-button-color;
+  }
+
+}
+
+.button--reverse {
+  background-color: $reverse-button-color;
+  box-shadow: 0 $button-shadow-size 0 $reverse-button-shadow-color;
+  color: $reverse-button-text-color;
+
+  &:hover {
+    background-color: darken($reverse-button-color, 5%);
+    color: $reverse-button-text-color;
+  }
+
+  &:focus {
+    background: $focus-color;
+    box-shadow: 0 $button-shadow-size 0 $focus-text-color;
+    color: $focus-text-color;
+    outline: $focus-width solid transparent;
+  }
+
+  &:active {
+    background: $reverse-button-active-color;
+    box-shadow: none;
+    color: $color_white;
+    top: $button-shadow-size;
+  }
+
+  &:link {
+    color: $reverse-button-text-color;
+
+    &:active {
+      color: $color_white;
+    }
+  }
+
+  &.button--disabled {
+    background-color: $reverse-button-color;
+
+    &:focus {
+      background-color: $reverse-button-color;
+    }
+  }
+
+}
+
+.button--disabled,
+.button[disabled="disabled"],
+.button[disabled] {
+  background-color: $button-color;
+  opacity: (.5);
+  pointer-events: none;
+
+  &:hover {
+    background-color: $button-color;
+    cursor: default;
+  }
+
+  &:focus {
+    background-color: $button-color;
+    outline: none;
+  }
+
+  &:active {
+    box-shadow: 0 $button-shadow-size 0 $button-shadow-color;
+    top: 0;
+  }
+
+}
+
+.button--secondary[disabled="disabled"],
+.button--secondary[disabled] {
+  background-color: $secondary-button-color;
+  opacity: (.5);
+
+  &:hover {
+    background-color: $secondary-button-color;
+    cursor: default;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    box-shadow: 0 $button-shadow-size 0 $secondary-button-shadow-color;
+    top: 0;
+  }
+
+}
+
+.button--reverse[disabled="disabled"],
+.button--reverse[disabled] {
+  background-color: $reverse-button-color;
+  opacity: (.5);
+
+  &:hover {
+    background-color: $reverse-button-color;
+    cursor: default;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    box-shadow: 0 $button-shadow-size 0 $reverse-button-shadow-color;
+    top: 0;
+  }
+
+}
+
+.ie8 {
+  .button {
+    &:focus {
+      outline: 1px dotted $focus-text-color;
+    }
+  }
+}

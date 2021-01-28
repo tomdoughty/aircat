@@ -1,0 +1,225 @@
+@mixin clearfix() {
+  &:after {
+    clear: both;
+    content: '';
+    display: block;
+  }
+}
+
+@mixin reading-width() {
+  max-width: 44em;
+}
+
+@mixin visually-hidden() {
+  -webkit-clip-path: inset(50%);
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+@mixin visually-shown($display-property) {
+  -webkit-clip-path: initial;
+  clip: auto;
+  clip-path: initial;
+  display: $display-property;
+  height: auto;
+  overflow: auto;
+  position: relative;
+  width: auto;
+}
+
+@mixin top-and-bottom() {
+  & > *:first-child {
+    margin-top: 0;
+  }
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@mixin panel($panel-background-color, $panel-text-color) {
+
+  @include top-and-bottom();
+  @include responsive-margin(7, 'bottom');
+  @include responsive-margin(7, 'top');
+  @include responsive-padding(5);
+
+  background-color: $panel-background-color;
+  color: $panel-text-color;
+
+  @include mq($media-type: print) {
+    border: 1px solid $print-text-color;
+    page-break-inside: avoid;
+  }
+
+}
+
+@mixin panel-with-label($panel-background-color, $panel-text-color, $panel-border-color) {
+  @include panel($panel-background-color, $panel-text-color);
+
+  border: 1px solid $panel-border-color;
+  padding-top: 0 !important;
+}
+
+@mixin heading-label($heading-background-color, $heading-text-color) {
+  @include typography-responsive(24);
+
+  background-color: $heading-background-color;
+  color: $heading-text-color;
+  display: inline-block;
+  margin: spacing(0) spacing(0) spacing(2) -33px;
+  padding: spacing(2) spacing(5);
+  position: relative;
+  top: -16px;
+
+  @include mq($until: tablet) {
+    margin-left: -25px;
+    margin-right: 0;
+    padding: spacing(2) spacing(4);
+    top: -8px;
+  }
+
+  @include mq($media-type: print) {
+    background: none;
+    color: $color_black;
+    top: 0;
+  }
+}
+
+@mixin care-card($heading-background-color, $heading-text-color, $print-border-size) {
+
+  .care-card__heading-container {
+    background-color: $heading-background-color;
+    color: $heading-text-color;
+  }
+
+  @include mq($media-type: print) {
+    border: $print-border-size solid $print-text-color;
+    color: $print-text-color;
+    page-break-inside: avoid;
+  }
+}
+
+@mixin print-color($print-color) {
+
+  @include mq($media-type: print) {
+    color: $print-color;
+    fill: $print-color;
+
+    &:active,
+    &:focus,
+    &:visited {
+      color: $print-text-color;
+    }
+  }
+}
+
+@mixin print-hide() {
+
+  @include mq($media-type: print) {
+    display: none;
+  }
+
+}
+
+@mixin flex() {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@mixin flex-item() {
+  display: flex;
+
+  @include mq($until: desktop) {
+    flex: 0 0 100%;
+  }
+}
+
+@mixin toggle-button() {
+  background-color: transparent;
+  border: 1px solid $text_color;
+  border-radius: $border-radius;
+  color: $text_color;
+  cursor: pointer;
+
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  &:hover {
+    background-color: $text_color;
+    border-color: $text_color;
+    color: $color_white;
+    box-shadow: none;
+  }
+
+  &:focus {
+    border: 1px solid $focus-color !important;
+  }
+
+  &:active,
+  &.is-active {
+    background-color: $text_color;
+    border-color: $text_color;
+    color: $color_white;
+
+    .icon__search {
+      fill: $color_white;
+    }
+  }
+
+}
+
+@mixin close-button() {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  height: 40px;
+  padding: 0;
+  width: 40px;
+
+  .icon__close {
+    fill: $color_red;
+    height: 40px;
+    width: 40px;
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  &:hover {
+    .icon__close {
+      fill: $secondary-button-hover-color;
+    }
+  }
+
+  &:focus {
+    @include focused-text;
+  }
+}
+
+@mixin remove-margin-mobile() {
+  @include mq($until: tablet) {
+    margin-left: -$gutter-half;
+    margin-right: -$gutter-half;
+  }
+}
+
+@mixin logo-size {
+  height: 66px;
+  width: 313px;
+}
+
+@mixin logo-size-small {
+  height: 50px;
+  width: 232px;
+}

@@ -1,0 +1,88 @@
+@mixin link-style-default {
+
+  color: $link-color;
+
+  &:visited {
+    color: $link-visited-color;
+  }
+
+  &:hover {
+    color: $link-hover-color;
+    text-decoration: none;
+  }
+
+  &:focus {
+    @include focused-text();
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:visited {
+      color: $focus-text-color;
+    }
+
+    .icon {
+      fill: $focus-text-color;
+    }
+  }
+
+  &:active {
+    color: $link-active-color;
+  }
+
+}
+
+@mixin link-style-white {
+
+  color: $color_white;
+
+  &:visited {
+    color: $color_white;
+  }
+
+  &:hover {
+    color: $color_white;
+    text-decoration: none;
+  }
+
+  &:focus {
+    color: $focus-text-color;
+    outline: $focus-width solid transparent;
+    outline-offset: $focus-width;
+    text-decoration: none;
+  }
+
+  &:active {
+    color: $link-active-color;
+  }
+
+}
+
+@mixin link-style-hover {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+@mixin link-style-no-visited-state {
+  &:link {
+    color: $link-color;
+  }
+
+  &:visited {
+    color: $link-color;
+  }
+
+  &:hover {
+    color: $link-hover-color;
+  }
+
+  &:active {
+    color: $link-active-color;
+  }
+
+  &:focus {
+    color: $focus-text-color;
+  }
+}

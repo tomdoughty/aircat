@@ -1,0 +1,22 @@
+
+.textarea {
+  @include font(16);
+
+  -webkit-appearance: none;
+  border: $border-width-form-element solid $form-border-color;
+  border-radius: 0;
+  box-sizing: border-box;
+  display: block;
+  min-height: 40px;
+  padding: spacing(1);
+  resize: vertical;
+  width: 100%;
+
+  &:focus {
+    @include focused-input;
+  }
+}
+
+.textarea--error {
+  border: $border-width-form-element-error solid $error-color;
+}

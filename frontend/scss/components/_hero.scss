@@ -1,0 +1,29 @@
+
+.hero {
+  @include print-color($print-text-color);
+  @include responsive-padding(8, top);
+  @include responsive-padding(8, bottom);
+  @include responsive-margin(8, bottom);
+  background-image:url('//d25g25bk48as5o.cloudfront.net/media/development/1012/1600x660_carousel.jpg');
+  background-color: $text_color;
+  text-align: center;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $text_color;
+    opacity: 80%;
+    z-index: 1;
+  }
+}
+
+.hero__overlay {
+  position: relative;
+  color: $color_white;
+  z-index: 2;
+}

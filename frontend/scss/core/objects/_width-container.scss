@@ -1,0 +1,30 @@
+@mixin govuk-width-container {
+  margin: 0 $gutter-half;
+  max-width: $page-width;
+
+  @include govuk-media-query($from: desktop) {
+    margin: 0 $gutter;
+  }
+
+  @include govuk-media-query($and: '(min-width: #{($page-width + $gutter * 2)})') {
+    margin: 0 auto;
+  }
+}
+
+@mixin width-container-fluid {
+  margin: 0 $gutter-half;
+  max-width: 100%;
+
+  @include govuk-media-query($from: desktop) {
+    margin: 0 $gutter;
+  }
+}
+
+@include govuk-exports('govuk/objects/width-container') {
+  .width-container {
+    @include govuk-width-container;
+  }
+  .width-container-fluid {
+    @include width-container-fluid;
+  }
+}

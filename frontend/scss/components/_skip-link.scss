@@ -1,0 +1,16 @@
+.skip-link {
+  left: -9999px;
+  padding: spacing(2);
+  position: absolute;
+
+  &:active,
+  &:focus {
+    left: spacing(3);
+    top: spacing(3);
+    z-index: 2;
+  }
+
+  &:visited {
+    color: $color_black;
+  }
+}

@@ -1,0 +1,123 @@
+
+$checkboxes-size: spacing(6);
+$checkboxes-label-padding-left-right: 12px;
+ 
+.checkboxes__item {
+  @include font(19);
+
+  clear: left;
+  display: block;
+  margin-bottom: spacing(2);
+  min-height: $checkboxes-size;
+  padding: 0 0 0 $checkboxes-size;
+  position: relative;
+}
+
+.checkboxes__item:last-child,
+.checkboxes__item:last-of-type {
+  margin-bottom: 0;
+}
+
+.checkboxes__input {
+  cursor: pointer;
+  height: $checkboxes-size;
+  left: 0;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: $checkboxes-size;
+  z-index: 1;
+}
+
+.checkboxes__label {
+  -ms-touch-action: manipulation;
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 0;
+  padding: 8px $checkboxes-label-padding-left-right spacing(1);
+  touch-action: manipulation;
+}
+
+.checkboxes__hint {
+  display: block;
+  padding-left: $checkboxes-label-padding-left-right;
+  padding-right: $checkboxes-label-padding-left-right;
+}
+
+.checkboxes__input + .checkboxes__label::before {
+  background: $form-element-background-color;
+  border: $border-width-form-element solid $form-border-color;
+  box-sizing: border-box;
+  content: '';
+  height: $checkboxes-size;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: $checkboxes-size;
+}
+
+.checkboxes__input + .checkboxes__label::after {
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  background: transparent;
+  border: solid;
+  border-top-color: transparent;
+  border-width: 0 0 $border-width $border-width;
+  content: '';
+  height: 10px;
+  left: 10px;
+  opacity: 0; 
+  position: absolute;
+  top: 13px;
+  transform: rotate(-45deg);
+  width: 22px;
+}
+
+.checkboxes__input:focus + .checkboxes__label::before {
+  @include focused-checkbox();
+}
+ 
+.checkboxes__input:checked + .checkboxes__label::after {
+  opacity: 1;
+}
+
+.checkboxes__input:disabled,
+.checkboxes__input:disabled + .checkboxes__label {
+  cursor: default;
+}
+
+.checkboxes__input:disabled + .checkboxes__label {
+  opacity: .5;
+}
+
+.checkboxes__divider {
+  $divider-size: $checkboxes-size !default;
+  @include font(19);
+
+  color: $text-color;
+  margin-bottom: spacing(2);
+  text-align: center;
+  width: $divider-size;
+} 
+
+$conditional-border-width: $border-width-mobile;
+$conditional-border-padding: ($checkboxes-size / 2) - ($conditional-border-width / 2);
+$conditional-margin-left: $conditional-border-padding;
+$conditional-padding-left: $conditional-border-padding + $checkboxes-label-padding-left-right;
+
+.checkboxes__conditional {
+  @include responsive-margin(4, 'bottom');
+  border-left: $conditional-border-width solid $form-border-color;
+  margin-left: $conditional-margin-left;
+  padding-left: $conditional-padding-left;
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.js-enabled .checkboxes__conditional--hidden {
+  display: none;
+}
+ 

@@ -1,0 +1,24 @@
+a {
+  @include link-style-default;
+
+  @include mq($media-type: print) {
+    &:after {
+      color: $color_black;
+      content: ' (Link: ' attr(href) ')';
+      font-size: 14pt;
+    }
+  }
+
+}
+
+.ie8 {
+  a {
+    &:focus {
+      outline: 1px dotted $focus-text-color;
+    }
+  }
+}
+
+.link--no-visited-state {
+  @include link-style-no-visited-state;
+}

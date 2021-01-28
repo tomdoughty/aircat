@@ -1,0 +1,20 @@
+.hint {
+  @include font(19);
+
+  color: $secondary-text-color;
+  display: block;
+  margin-bottom: spacing(3);
+}
+
+.label:not(.label--m):not(.label--l):not(.label--xl) + .hint {
+  margin-bottom: spacing(2);
+}
+
+.fieldset__legend:not(.fieldset__legend--m):not(.fieldset__legend--l):not(.fieldset__legend--xl) + .hint {
+  margin-bottom: spacing(2);
+}
+
+.fieldset__legend + .hint,
+.fieldset__legend + .hint {
+  margin-top: -(spacing(1));
+}

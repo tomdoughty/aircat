@@ -1,0 +1,17 @@
+@each $size in map-keys($typography-scale) {
+  .u-font-size-#{$size} {
+    @include typography-responsive($size, $important: true);
+  }
+}
+
+.u-font-weight-normal {
+  @include typography-weight-normal($important: true);
+}
+
+.u-font-weight-bold {
+  @include typography-weight-bold($important: true);
+}
+
+.u-secondary-text-color {
+  color: $secondary-text-color !important;
+}

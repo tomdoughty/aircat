@@ -1,0 +1,43 @@
+table {
+  @include responsive-margin(7, 'bottom');
+
+  border-spacing: 0;
+  vertical-align: top;
+  width: 100%;
+
+  @include mq($media-type: print) {
+    page-break-inside: avoid;
+  }
+
+}
+
+thead {
+  th {
+    border-bottom: $border-table-header-width solid $border-color;
+  }
+}
+
+th,
+td {
+  @include typography-responsive(19);
+  @include responsive-padding(3, 'bottom');
+  @include responsive-padding(4, 'right');
+  @include responsive-padding(3, 'top');
+
+  border-bottom: $border-table-cell-width solid $border-color;
+  text-align: left;
+  vertical-align: top;
+
+  &:last-child {
+    padding-right: 0;
+  }
+}
+
+th {
+  font-weight: $font-bold;
+}
+
+caption {
+  @include font($size: 22, $weight: bold);
+  text-align: left;
+}

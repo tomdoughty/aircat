@@ -1,0 +1,21 @@
+.form-group {
+  @include responsive-margin(4, 'bottom');
+
+  .form-group:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.form-group--wrapper {
+  @include responsive-margin(5, 'bottom');
+}
+
+.form-group--error {
+  border-left: $border-width-form-group-error solid $error-color;
+  padding-left: spacing(3);
+
+  .form-group {
+    border: 0;
+    padding: 0;
+  }
+}

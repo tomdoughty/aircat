@@ -1,0 +1,37 @@
+@mixin focused-text {
+  background-color: $focus-color;
+  box-shadow: 0 -2px $focus-color, 0 $focus-width $focus-text-color;
+  color: $focus-text-color;
+  outline: $focus-width solid transparent;
+  text-decoration: none;
+}
+
+@mixin focused-input {
+  border: 2px solid $focus-text-color;
+  box-shadow: inset 0 0 0 2px;
+  outline: $focus-width solid $focus-color;
+  outline-offset: 0;
+}
+
+@mixin focused-radio {
+  border: $focus-width solid $focus-text-color;
+  box-shadow: 0 0 0 $focus-width $focus-color;
+}
+
+@mixin focused-checkbox {
+  border: $focus-width solid $focus-text-color;
+  box-shadow: 0 0 0 $focus-width $focus-color;
+}
+
+@mixin focused-button {
+  background-color: $focus-color;
+  border: 0;
+  box-shadow: 0 $focus-width 0 0 $focus-text-color;
+  color: $focus-text-color;
+  outline: $focus-width solid transparent;
+  outline-offset: $focus-width;
+
+  .icon {
+    fill: $focus-text-color;
+  }
+}

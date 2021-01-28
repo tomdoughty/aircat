@@ -1,0 +1,24 @@
+.select {
+  @include font(16);
+
+  border: $border-width-form-element solid $form-border-color;
+  box-sizing: border-box;
+  height: 40px;
+  max-width: 100%;
+  padding: spacing(1);
+
+  &:focus {
+    @include focused-input;
+  }
+}
+
+.select option:active,
+.select option:checked,
+.select:focus::-ms-value {
+  background-color: $color_blue;
+  color: $color_white;
+}
+
+.select--error {
+  border: $border-width-form-element-error solid $error-color;
+}

@@ -1,0 +1,131 @@
+$card-border-width: 1px;
+$card-border-bottom-width: spacing(1);
+$card-border-color: $color_grey-4;
+$card-border-hover-color: $color_grey-3;
+
+.card {
+  @include responsive-margin(7, 'bottom');
+
+  background: $color_white;
+  border: $card-border-width solid $card-border-color;
+  position: relative;
+  width: 100%;
+}
+
+.card__img {
+  @include print-hide();
+
+  border-bottom: $card-border-width solid $color_grey-5;
+  display: block;
+  width: 100%;
+}
+
+.card__content {
+  @include top-and-bottom();
+  @include responsive-padding(5);
+
+  position: relative;
+}
+
+.card__heading,
+.card__metadata,
+.card__description {
+  margin-bottom: spacing(3);
+}
+
+.card--clickable {
+  border-bottom-width: $card-border-bottom-width;
+
+  &:hover,
+  &:active {
+    cursor: pointer;
+
+    .card__heading a,
+    .card__link {
+      color: $link-hover-color;
+      text-decoration: none;
+
+      &:focus {
+        color: $focus-text-color;
+      }
+    }
+
+  }
+
+  &:hover {
+    border-color: $card-border-hover-color;
+  }
+
+  &:active {
+    border-color: $card-border-hover-color;
+    bottom: - $card-border-width; /* [3] */
+  }
+}
+
+.card-group {
+  @include flex();
+
+  margin-bottom: spacing(3);
+  padding: 0;
+
+  @include mq($until: desktop) {
+    margin-bottom: spacing(6);
+  }
+
+  + h2,
+  + .heading-l,
+  + h3,
+  + .heading-m {
+    padding-top: 0;
+  }
+}
+ 
+ .card-group__item {
+   @include flex-item();
+ 
+   list-style-type: none;
+   margin-bottom: 0;
+ 
+   .card {
+     margin-bottom: spacing(5);
+   }
+ 
+   @include mq($until: desktop) {
+ 
+     .card {
+       margin-bottom: spacing(3);
+     }
+ 
+     &:last-child .card {
+       margin-bottom: 0;
+     }
+   }
+ }
+ 
+ .card--feature {
+   @include responsive-margin(7, 'top');
+ }
+ 
+ .card__heading--feature {
+   background: $color_blue;
+   color: $color_white;
+   display: inline-block;
+   left: - (spacing(4) + $card-border-width);
+   margin-bottom: spacing(2);
+   margin-right: - spacing(4);
+   padding: spacing(2) spacing(4);
+   position: relative;
+   top: - spacing(2);
+ 
+   @include mq($from: tablet) {
+     left: - (spacing(5) + $card-border-width);
+     margin-right: - spacing(5);
+     padding: spacing(2) spacing(5);
+     top: - spacing(3);
+   }
+ }
+ 
+ .card__content--feature {
+   padding-top: 0 !important;
+ }
+ 

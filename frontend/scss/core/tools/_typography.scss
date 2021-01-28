@@ -1,0 +1,79 @@
+@mixin text-color {
+  color: $text-color;
+
+  @include govuk-media-query($media-type: print) {
+    color: $print-text-color;
+  }
+}
+
+@mixin typography-weight-normal($important: false) {
+  font-weight: $font-normal iff($important, !important);
+}
+
+@mixin typography-weight-bold($important: false) {
+  font-weight: $font-bold iff($important, !important);
+}
+
+@function _line-height($line-height, $font-size) {
+  @if not unitless($line-height) and unit($line-height) == unit($font-size) {
+    $line-height: $line-height / $font-size;
+  }
+
+  @return $line-height;
+}
+
+@mixin typography-responsive($size, $override-line-height: false, $important: false) {
+
+  @if not map-has-key($typography-scale, $size) {
+    @error 'Unknown font size `#{$size}` - expected a point from the typography scale.';
+  }
+
+  $font-map: map-get($typography-scale, $size);
+
+  @each $breakpoint, $breakpoint-map in $font-map {
+    $font-size: map-get($breakpoint-map, 'font-size');
+    $font-size-rem: px-to-rem($font-size);
+
+    $line-height: _line-height(
+      $line-height: if($override-line-height,
+        $override-line-height,
+        map-get($breakpoint-map, 'line-height')
+      ),
+      $font-size: $font-size
+    );
+
+    $font-size: $font-size iff($important, !important);
+    $font-size-rem: $font-size-rem iff($important, !important);
+    $line-height: $line-height iff($important, !important);
+
+    @if $breakpoint == null {
+      font-size: $font-size;
+      font-size: $font-size-rem;
+      line-height: $line-height;
+    } @else if $breakpoint == 'print' {
+      @include govuk-media-query($media-type: print) {
+        font-size: $font-size;
+        line-height: $line-height;
+      }
+    } @else {
+      @include govuk-media-query($from: $breakpoint) {
+        font-size: $font-size;
+        font-size: $font-size-rem;
+        line-height: $line-height;
+      }
+    }
+  }
+}
+
+@mixin font($size, $weight: normal, $line-height: false) {
+
+  @if $weight == normal {
+    @include typography-weight-normal;
+  } @else if $weight == bold {
+    @include typography-weight-bold;
+  }
+
+  @if $size {
+    @include typography-responsive($size, $override-line-height: $line-height);
+  }
+}

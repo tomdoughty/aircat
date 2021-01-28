@@ -1,0 +1,9 @@
+en:
+  SilverShop\Model\Address:
+    AddressHint: ""
+    AddressLine2Hint: ""
+    CityHint: ""
+    ShippingAddress: 'Shipping Address'
+    StateHint: ""
+    db_PostalCode: 'Post Code'
+    db_State: County

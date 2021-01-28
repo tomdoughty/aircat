@@ -1,0 +1,68 @@
+.footer {
+  @include clearfix();
+  @include print-hide();
+  @include responsive-padding(5, bottom);
+  @include responsive-padding(5, top);
+
+  background-color: $footer-color;
+}
+
+.footer__list {
+  @include responsive-padding(4, bottom);
+
+  list-style-type: none;
+  margin: 0;
+  padding-left: spacing(0);
+
+  @include mq($from: desktop) {
+    float: left;
+    padding-bottom: 0;
+    width: 75%;
+  }
+}
+
+.footer__list-item {
+  @include font(16);
+
+  @include mq($from: desktop) {
+    float: left;
+    margin-right: spacing(5);
+  }
+}
+
+.footer__list-item-link {
+  color: $color-white;
+
+  &:visited {
+    color: $color-white;
+  }
+
+  &:hover {
+    color: $color-white;
+  }
+}
+
+.footer-paragraph {
+  @include font(16);
+  color: $color-white;
+  margin-bottom: 0;
+
+  a {
+    color: inherit;
+  }
+}
+
+@include mq($from: desktop) {
+  .footer__list--three-columns {
+    -moz-column-count: 3;
+    -moz-column-gap: spacing(4);
+    -webkit-column-count: 3;
+    -webkit-column-gap: spacing(4);
+    column-count: 3;
+    column-gap: spacing(4);
+
+    li {
+      float: none;
+    }
+  }
+}

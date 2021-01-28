@@ -1,0 +1,28 @@
+$_spacing-directions: (
+  'top',
+  'right',
+  'bottom',
+  'left'
+) !default;
+
+@mixin _generate-spacing-overrides($property) {
+  @each $scale-point, $scale-map in $spacing-responsive-scale {
+
+    .u-#{$property}-#{$scale-point} {
+
+      @include _responsive-spacing($scale-point, $property, 'all', true);
+    }
+    
+    @each $direction in $_spacing-directions {
+
+      .u-#{$property}-#{$direction}-#{$scale-point} {
+        @include _responsive-spacing($scale-point, $property, $direction, true);
+      }
+    }
+  }
+}
+
+@include govuk-exports('govuk/overrides/spacing') {
+  @include _generate-spacing-overrides('margin');
+  @include _generate-spacing-overrides('padding');
+}

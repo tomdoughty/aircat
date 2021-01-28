@@ -1,0 +1,36 @@
+.related-nav {
+  border-top: 2px solid $color_red;
+
+  @include mq($until: desktop) {
+    margin-top: spacing(7);
+  }
+}
+
+.related-nav__heading {
+  @include typography-responsive(24, $override-line-height: 1.2);
+
+  margin-bottom: spacing(3);
+  padding-top: spacing(3);
+}
+
+.related-nav__list {
+  list-style: none;
+  margin-bottom: spacing(3);
+  padding-left: spacing(0);
+}
+
+.related-nav__item {
+  @include typography-responsive(16);
+}
+
+.related-nav__link {
+  &.section, &.current {
+    font-weight: 700;
+  }
+}
+
+.related-nav__sub-heading {
+  @include responsive-margin(2, "bottom");
+  @include responsive-padding(2, "top");
+  @include typography-responsive(19, $override-line-height: 1.2);
+}

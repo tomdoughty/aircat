@@ -1,0 +1,16 @@
+html {
+  background-color: $footer-color;
+  font-family: $font, $font-fallback;
+  overflow-y: scroll;
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color: $color_white;
+  color: $text-color;
+  font-size: $base-font-size;
+  line-height: _line-height($base-line-height, $base-font-size);
+  margin: 0;
+  min-height: 100%;
+}

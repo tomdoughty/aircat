@@ -1,0 +1,50 @@
+.label {
+  @include font(19);
+
+  display: block;
+  margin-bottom: spacing(1);
+}
+
+.label--xl {
+  @include typography-responsive(48);
+
+  display: block;
+  font-weight: $font-bold;
+  margin-top: 0;
+
+  @include responsive-margin(7, 'bottom');
+}
+
+.label--l {
+  @include typography-responsive(32);
+
+  display: block;
+  font-weight: $font-bold;
+  margin-top: 0;
+
+  @include responsive-margin(4, 'bottom');
+}
+
+.label--m {
+  @include typography-responsive(24);
+
+  display: block;
+  font-weight: $font-bold;
+  margin-top: 0;
+
+  @include responsive-margin(4, 'bottom');
+}
+  
+.label--s {
+  @include typography-responsive(19);
+
+  display: block;
+  font-weight: $font-bold;
+  margin-top: 0;
+
+  @include responsive-margin(4, 'bottom');
+}
+
+.label-wrapper {
+  margin: 0;
+}
