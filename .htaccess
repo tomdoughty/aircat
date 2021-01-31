@@ -9,7 +9,6 @@ RewriteRule ^(.*)$ public/$1
 	Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains"
   Header set Content-Security-Policy "default-src 'self' *.norgren.com *.cloudfront.net; script-src 'self' 'unsafe-inline'; font-src fonts.gstatic.com; style-src 'self' fonts.googleapis.com"
 	Header set Referrer-Policy "same-origin"
-	Header set Feature-Policy "geolocation 'self'; vibrate 'none'"
   
   <FilesMatch ".(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf|svg)$">
     Header set Cache-Control "max-age=31536000, public"
