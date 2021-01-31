@@ -6,4 +6,8 @@ RewriteRule ^(.*)$ public/$1
 	Header set X-XSS-Protection "1; mode=block"
 	Header always append X-Frame-Options SAMEORIGIN
 	Header set X-Content-Type-Options nosniff
+  
+  <FilesMatch ".(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf|svg)$">
+    Header set Cache-Control "max-age=31536000, public"
+  </FilesMatch>
 </IfModule>
