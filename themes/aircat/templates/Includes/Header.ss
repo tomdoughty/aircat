@@ -43,7 +43,7 @@
 
       <div class="header__login">
         <% with $Cart %>
-          <a href="$Top.CartLink">Cart<% if $Items %> ({$Items.Count})<% end_if %><a>
+          <a href="$Top.CartLink">Cart<% if $Items %> ({$Items.Count})<% end_if %></a>
         <% end_with %>
         <% if $CurrentMember %>
           <a href="/account">My account</a>
