@@ -1,4 +1,4 @@
-<footer role="contentinfo">
+<footer>
   <div class="footer" id="footer">
     <div class="width-container">
       <div class="grid-row">
