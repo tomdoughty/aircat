@@ -11,7 +11,7 @@
       <h1>$Title</h1>
       
       <% if $ImageUrl %>
-        <img class="image" src="$ImageUrl" alt="<%t SilverShop\Page\Product.ImageAltText "{Title} image" Title=$Title %>" />
+        <img class="image" src="$RemoveProtocol($ImageUrl)" alt="<%t SilverShop\Page\Product.ImageAltText "{Title} image" Title=$Title %>" />
       <% end_if %>
       
       <% if $InternalItemID %>
