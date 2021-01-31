@@ -4,7 +4,7 @@
   @include responsive-padding(8, top);
   @include responsive-padding(8, bottom);
   @include responsive-margin(8, bottom);
-  background-image:url('//d25g25bk48as5o.cloudfront.net/media/development/1012/1600x660_carousel.jpg');
+  background-image:url('../../images/banner-default.jpg');
   background-color: $text_color;
   text-align: center;
   position: relative;
