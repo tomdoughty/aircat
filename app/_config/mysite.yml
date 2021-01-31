@@ -8,6 +8,9 @@ SilverStripe\CMS\Model\SiteTree:
   extensions:
     - SiteTree
 
+SilverStripe\View\SSViewer:
+  rewrite_hash_links: false
+
 SilverShop\Admin\ProductBulkLoader:
   extensions:
     - SetParentExtension

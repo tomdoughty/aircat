@@ -20,12 +20,12 @@
     <% include SilverShop\Includes\Price %>
     
     <% if $View %>
-      <a href="$Link" title="<%t SilverShop\Generic.ReadMoreTitle "Click here to read more on &quot;{Title}&quot;" Title=$Title %>">
+      <a href="$Link">
         <%t SilverShop\Page\Product.View "View Product" %>
       </a>
     <% else %>
       <% if $canPurchase %>
-        <a href="/{$addLink}" title="<%t SilverShop\Page\Product.AddToCartTitle "Add &quot;{Title}&quot; to your cart" Title=$Title %>" class="button u-margin-bottom-0">
+        <a href="/{$addLink}" class="button u-margin-bottom-0">
           <%t SilverShop\Page\Product.AddToCart "Add to Cart" %>
         </a>
       <% end_if %>
