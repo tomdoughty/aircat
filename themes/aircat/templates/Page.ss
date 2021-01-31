@@ -38,7 +38,7 @@
   <meta property="og:locale" content="en_GB">
   <meta property="og:image" content="$ShareImage.AbsoluteURL">
 
-  <script type="text/javascript" src="/public/javascript/main.js" defer></script>
+  <script src="/public/javascript/main.js" defer></script>
 </head>
 <body>
   <% include Header %>

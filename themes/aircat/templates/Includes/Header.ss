@@ -1,6 +1,6 @@
 <a class="skip-link" href="#maincontent">Skip to main content</a>
 
-<header class="header" role="banner">
+<header class="header">
   <div class="width-container header__container">
     <div class="header__logo">
       <a class="header__link" href="$BaseHref" aria-label="$SiteConfig.Title $SiteConfig.Tagline homepage">
@@ -56,7 +56,7 @@
     </div>
   </div>
 
-  <nav class="header__navigation" id="header-navigation" role="navigation" aria-label="Primary navigation" aria-labelledby="label-navigation">
+  <nav class="header__navigation" id="header-navigation" aria-label="Primary navigation" aria-labelledby="label-navigation">
     <div class="width-container">
       <p class="header__navigation-title"><span id="label-navigation">Menu</span>
         <button class="header__navigation-close" id="close-menu">

@@ -17,5 +17,5 @@
         </div>
       </div>
     <% end_loop %>
-  <div>
+  </div>
 </div>

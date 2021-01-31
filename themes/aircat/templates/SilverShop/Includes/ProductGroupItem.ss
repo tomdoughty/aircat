@@ -2,7 +2,7 @@
 
    <% if $ImageUrl %>
     <div class="grid-column-one-third">
-      <img src="$ImageUrl" alt="<%t SilverShop\Page\Product.ImageAltText "{Title} image" Title=$Title %>" class="image__img u-margin-bottom-3">
+      <img src="$ImageUrl" alt="<%t SilverShop\Page\Product.ImageAltText "{Title}" Title=$Title %>" class="image__img u-margin-bottom-3">
     </div>
     <div class="grid-column-two-thirds">
   <% else %>
